@@ -102,7 +102,10 @@ function handelSubmit(event) {
     let dept = event.target.department.value;
     let level = event.target.level.value;
     let img = event.target.imgUrl.value;
-    let newEmp = new employee(name, dept, level, img);
+    let temp=employee.length;
+    // allEmployee[temp].fullName=name; allEmployee[temp].department=dept; allEmployee[temp].level=level; allEmployee[temp].imageUrl=img;
+    // saveEmployees();
+    let newEmp = new employee(name, dept, level, img); saveEmployees(); 
     newEmp.getId();
     newEmp.generateSalary();
     saveEmployees();
@@ -114,6 +117,7 @@ function handelSubmit(event) {
 
 function renderAll() {
     empDiv.innerHTML = "";
+    
     for (let i = 0; i < allEmployee.length; i++) {
         allEmployee[i].getId();
         allEmployee[i].generateSalary();
